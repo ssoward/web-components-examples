@@ -1,0 +1,24 @@
+<template id="captionedPicTemplate">
+  <div>
+    <img src="">
+    <div id="captionText"></div>
+  </div>
+</template>
+<script>
+  var captionedPicPrototype = Object.create(HTMLElement.prototype);
+
+  captionedPicPrototype.createdCallback = function() {
+    var imageUrl = this.getAttribute('img');
+    var caption = this.getAttribute('caption');
+    var link = document.querySelector('#captioned-pic-import'); 
+    var template = link.import.querySelector("#captionedPicTemplate");
+    var item = template.content.cloneNode(true);
+    item.querySelector('img').src = imageUrl;
+    item.querySelector('#captionText').textContent = caption;
+    this.appendChild(item);
+  };
+
+  document.registerElement('captioned-pic', {
+    prototype: captionedPicPrototype
+  });
+</script>

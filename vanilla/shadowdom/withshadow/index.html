@@ -1,0 +1,44 @@
+<html>
+
+  <head>
+  	<title>Shadow DOM Example (With Shadow)</title>
+    <!--
+    
+    For support in all browsers, install platform.js then uncomment the following <script> tag line.
+
+    <script src="bower_components/platform/platform.js"></script>
+
+    To install platform.js with bower:
+
+    $ bower install Polymer/platform 
+    -->
+    <script src="bower_components/platform/platform.js"></script>
+    <link id="captioned-pic-import"
+      rel="import" 
+      href="captioned-pic.html"> 
+  </head>
+
+  <body>
+  	<h2>Shadow DOM Example (With Shadow)</h2>
+
+    <captioned-pic img="HandCart.jpg" 
+                   caption="Hand cart near Whispering Canyon Cafe at Disney's Wilderness Lodge"></captioned-pic>
+
+    <captioned-pic img="YehaaBob.jpg" 
+                   caption="Yehaa Bob Jackson entertains guests in the River Roost Lounge at Disney's Port Orleans Riverside Resort"></captioned-pic>
+
+    <captioned-pic img="MK.jpg" 
+                   caption="The Magic Kingdom as seen from the Seven Seas Lagoon"></captioned-pic>
+
+    <p>The following text should contain the name of the mute member of the Seven Dwarfs:
+    <b><span id="captionText">IF YOU SEE THIS, THE SHADOW DOM ISN'T WORKING!!!</span></b>
+    </p>
+
+    <script>
+      var caption = document.querySelector("#captionText");
+      caption.textContent = 'Dopey';
+    </script>
+
+  </body>
+
+</html>

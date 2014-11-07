@@ -1,0 +1,32 @@
+<html>
+
+  <head>
+  	<title>Shadow DOM Example (With Shadow)</title>
+    <link id="captioned-pic-import"
+      rel="import" 
+      href="captioned-pic.html"> 
+  </head>
+
+  <body>
+  	<h2>Shadow DOM Example (With Shadow)</h2>
+
+    <template id="hiya">
+        <p>Hiya!</p>
+    </template>
+
+    <div id="xyz">
+      Inserted content goes here:
+      <content></content>
+    </div>
+
+    <script>
+      var xyzDiv = document.querySelector("#xyz");
+      var shadowRoot = xyzDiv.createShadowRoot();
+      var hiyaTemplate = document.querySelector("#hiya");
+      var item = hiyaTemplate.content.cloneNode(true);
+      shadowRoot.appendChild(item);
+    </script>
+
+  </body>
+
+</html>

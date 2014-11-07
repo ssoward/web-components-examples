@@ -1,0 +1,29 @@
+<html>
+
+  <head>
+  	<title>Custom Elements Example</title>
+  </head>
+
+  <body>
+  	<h2>Custom Elements Example</h2>
+
+    <script>
+      var okButtonPrototype = Object.create(HTMLButtonElement.prototype);
+
+      okButtonPrototype.createdCallback = function() {
+        this.textContent = "Okie-Dokie";
+      };
+
+      document.registerElement('ok-button', {
+        prototype: okButtonPrototype,
+        extends: 'button'
+      });
+    </script>
+
+    <form>
+      <button is="ok-button">xxx</button>
+    </form>
+
+  </body>
+
+</html>

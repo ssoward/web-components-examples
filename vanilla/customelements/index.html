@@ -1,0 +1,43 @@
+<html>
+
+  <head>
+  	<title>Custom Elements Example</title>
+  </head>
+
+  <body>
+  	<h2>Custom Elements Example</h2>
+
+    <template id="captionedPicTemplate">
+      <div>
+        <img src="">
+        <div class="caption-text"></div>
+      </div>
+    </template>
+    <script>
+      var captionedPicPrototype = Object.create(HTMLElement.prototype);
+
+      captionedPicPrototype.createdCallback = function() {
+        var imageUrl = this.getAttribute('img');
+        var caption = this.getAttribute('caption');
+        var template = document.querySelector("#captionedPicTemplate");
+        var item = template.content.cloneNode(true);
+        item.querySelector('img').src = imageUrl;
+        item.querySelector('.caption-text').textContent = caption;
+        this.appendChild(item);
+      };
+
+      document.registerElement('captioned-pic', {
+        prototype: captionedPicPrototype
+      });
+    </script>
+
+    <captioned-pic img="HandCart.jpg" 
+                   caption="Hand cart near Whispering Canyon Cafe at Disney's Wilderness Lodge"></captioned-pic>
+    <captioned-pic img="YehaaBob.jpg" 
+                   caption="Yehaa Bob Jackson entertains guests in the River Roost Lounge at Disney's Port Orleans Riverside Resort"></captioned-pic>
+    <captioned-pic img="MK.jpg" 
+                   caption="The Magic Kingdom as seen from the Seven Seas Lagoon"></captioned-pic>
+
+  </body>
+
+</html>

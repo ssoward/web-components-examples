@@ -1,0 +1,34 @@
+<html>
+
+  <head>
+  	<title>HTML Templates Example</title>
+  	<script>
+  		function addImage(imageUrl, caption) {
+  			var template = document.querySelector("#imageTemplate");
+			var image = template.content.cloneNode(true);
+			image.querySelector('img').src = imageUrl; 
+			image.querySelector('.caption-text').textContent = caption; 
+			document.body.appendChild(image);
+  		}
+  	</script>
+  </head>
+
+  <body>
+  	<h2>HTML Templates Example</h2>
+
+  	<template id="imageTemplate">
+  		<div>
+  			<img src="">
+  			<div class="caption-text"></div>
+  		</div>
+  	</template>
+
+  	<script>
+  		addImage("HandCart.jpg", "Hand cart near Whispering Canyon Cafe at Disney's Wilderness Lodge");
+  		addImage("YehaaBob.jpg", "Yehaa Bob Jackson entertains guests in the River Roost Lounge at Disney's Port Orleans Riverside Resort");
+  		addImage("MK.jpg", "The Magic Kingdom as seen from the Seven Seas Lagoon");
+  	</script>
+
+  </body>
+
+</html>
