@@ -1,0 +1,60 @@
+<html>
+
+  <head>
+  	<title>Polymer Core Tags Example</title>
+    <script src="bower_components/platform/platform.js"></script>
+    <link rel="import" href="bower_components/core-elements/core-elements.html">
+  </head>
+
+  <body>
+  	<h2>Polymer Core Tags Example</h2>
+
+    <div>
+      <core-tooltip label="Yo dawg!" position="right">
+        <span>Hover over me</span>
+      </core-tooltip>
+    </div>
+
+    <div>
+      <core-tooltip>
+        <span>Hover over me, too!</span>
+        <div tip>
+          <h1>How to create hovers</h1>
+          <p>Adding a tooltip is easy if you follow these steps:</p>
+          <ul>
+            <li>Add a &lt;link&gt; to link in the core-tooltip.html</li>
+            <li>Wrap an element with &lt;core-tooltip&gt;</li>
+          </ul>
+          <p>And then read the manual for the rest of the story...</p>
+        </div>
+      </core-tooltip>
+    </div>
+
+    <div>
+      <core-dropdown-menu selected="Groovy" valueattr="label">
+          <core-item label="Java"></core-item>
+          <core-item label="Groovy"></core-item>
+          <core-item label="Go"></core-item>
+          <core-item label="Scala"></core-item>
+      </core-dropdown-menu>
+    </div>
+
+    <div>
+      <core-field>
+        <core-icon icon="info"></core-icon>
+        <label>What is your name?</label>
+        <input placeholder="name" flex>
+      </core-field>
+    </div>
+    <div>
+      <core-input type="number" placeholder="enter your email"></core-input>
+    </div>
+
+    <div horizontal layout  style="height:300px;border:1px solid black;">
+  <div>left</div>
+  <core-splitter direction="left"></core-splitter>
+  <div flex>right</div>
+</div>
+  </body>
+
+</html>
