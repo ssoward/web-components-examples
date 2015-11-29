@@ -1,0 +1,28 @@
+<link rel="import"
+      href="bower_components/polymer/polymer.html">
+
+<dom-module id="captioned-pic" attributes="img caption" noscript>
+  <template>
+  <div>
+    <img src="{{img}}">
+    <div class="caption-text">{{caption}}</div>
+
+    <iron-ajax
+        id="hab"
+        auto
+        handle-as="json"
+        url="http://localhost:8000/foo.json"
+        on-response="handleResponse"
+        debounce-duration="300">
+    </iron-ajax>
+  </div>
+  </template>
+  <script>
+    Polymer({
+    	is: "captioned-pic",
+      handleResponse: function(r) {
+        console.log(r.detail.response.foo);
+      }
+    });
+  </script>
+</dom-module>

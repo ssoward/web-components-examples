@@ -1,0 +1,29 @@
+<link rel="import"
+      href="bower_components/polymer/polymer.html">
+
+<dom-module id="friends-list" attributes="friends">
+  <template>
+    <ul>
+      <template is="dom-repeat" items="{{friendList}}">
+        <li>{{item}}</li>
+      </template>
+    </ul>
+  </template>
+  <script>
+    Polymer({
+    	is: "friends-list",
+      properties: {
+        friendList: {
+          type: Array,
+          observer: 'friendListChanged'
+        }
+      },
+      ready: function() {
+        this.friendList = this.attributes['friends'].value.split(",");
+      },
+      friendListChanged: function(o, n) {
+        console.log("CHANGING FRIEND LIST: ", o, n);
+      }
+    });
+  </script>
+</dom-module>
