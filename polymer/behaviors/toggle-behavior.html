@@ -1,0 +1,26 @@
+<script>
+  window.HabumaBehaviors = window.HabumaBehaviors || {};
+
+  HabumaBehaviors.ToggleBehavior = {
+  	properties: {
+  		toggleStatus: {
+  			type: Boolean,
+  			value: false,
+  			notify: true,
+  			observer: '_statusChanged'
+  		}
+  	},
+  	listeners: {
+  		click: '_toggleStatus'
+  	},
+  	created: function() {
+  		console.log('Toggling for ', this, ' enabled');
+  	},
+  	_toggleStatus: function() {
+  		this.toggleStatus = !this.toggleStatus;
+  	},
+  	_statusChanged: function() {
+        this.fire('status-changed', {message: 'Toggle status changed', status: this.toggleStatus});
+  	}
+  };
+</script>

@@ -1,0 +1,15 @@
+<link rel="import"
+      href="bower_components/polymer/polymer.html">
+<link rel="import" href="toggle-behavior.html">
+
+<dom-module id="toggle-button">
+  <template>
+    <button>Click me ({{toggleStatus}})</button>
+  </template>
+  <script>
+    Polymer({
+      is: 'toggle-button',
+      behaviors: [HabumaBehaviors.ToggleBehavior]
+    });
+  </script>
+</dom-module>
