@@ -1,0 +1,15 @@
+<polymer-element name="text-sizer">
+  <template>
+  Type something: <input id="typed" type="text" value="{{text}}"></input>
+    <template if="{{length > 0}}">
+      You typed '{{text}}' which is <b>{{length}}</b> characters long!
+    </template>
+  </template>
+  <script>
+    Polymer({
+      computed: {
+      	length: 'text.length'
+      }
+    });
+  </script>
+</polymer-element>

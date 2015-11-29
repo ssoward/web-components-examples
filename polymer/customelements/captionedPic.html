@@ -1,8 +1,16 @@
-<polymer-element name="captioned-pic" attributes="img caption" noscript>
+<link rel="import"
+      href="bower_components/polymer/polymer.html">
+
+<dom-module id="captioned-pic" attributes="img caption" noscript>
   <template>
   <div>
     <img src="{{img}}">
     <div class="caption-text">{{caption}}</div>
   </div>
   </template>
-</polymer-element>
+  <script>
+    Polymer({
+    	is: "captioned-pic"
+    });
+  </script>
+</dom-module>
